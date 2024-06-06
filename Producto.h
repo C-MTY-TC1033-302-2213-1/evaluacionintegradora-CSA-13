@@ -1,30 +1,22 @@
-#ifndef Producto_h
-#define Producto_h
+#ifndef PRODUCTO_H
+#define PRODUCTO_H
 
 #include <string>
 
-using namespace std;
-
 class Producto {
-protected:
-    string nombre;
-    int precio;
-    int peso;
-
 public:
-    Producto();
-    Producto(string _nombre, int _precio, int _peso);
-
-    void setNombre(string _nombre);
-    void setPrecio(int _precio);
-    void setPeso(int _peso);
-
-    string getNombre();
-    int getPrecio();
-    int getPeso();
-
-    virtual string str();
-    virtual int calcularTotalPagar();
+    Producto(std::string nombre, double precio, int cantidad);
+    virtual ~Producto() {}
+    std::string getNombre() const;
+    void setNombre(std::string nombre);
+    double getPrecio() const;
+    void setPrecio(double precio);
+    int getCantidad() const;
+    void setCantidad(int cantidad);
+private:
+    std::string nombre;
+    double precio;
+    int cantidad;
 };
 
-#endif // Producto_h
+#endif // PRODUCTO_H

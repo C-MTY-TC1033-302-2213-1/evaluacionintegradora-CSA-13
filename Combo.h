@@ -1,20 +1,16 @@
-#ifndef Combo_h
-#define Combo_h
+#ifndef COMBO_H
+#define COMBO_H
 
 #include "Producto.h"
+#include <string>
 
 class Combo : public Producto {
-private:
-    int clave;
-
 public:
-    Combo();
-    Combo(string _nombre, int _precio, int _peso, int _clave);
-  
-    int calcularTotalPagar() override;
-    string str() override;
-
-    ~Combo() {}
+    Combo(std::string nombre, double precio, int cantidad, int descuento);
+    int getDescuento() const;
+    void setDescuento(int descuento);
+private:
+    int descuento;
 };
 
-#endif /* Combo_h */
+#endif // COMBO_H

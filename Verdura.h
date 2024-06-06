@@ -1,21 +1,16 @@
-#ifndef Verdura_h
-#define Verdura_h
+#ifndef VERDURA_H
+#define VERDURA_H
 
-#include <stdio.h>
-#include <string>
 #include "Producto.h"
-using namespace std;
+#include <string>
 
 class Verdura : public Producto {
-private:
-    string temporada;
-
 public:
-    Verdura();
-    Verdura(string _nombre, int _precio, int _peso, string _temporada);
-
-    string str() override;
-    int calcularTotalPagar() override;
+    Verdura(std::string nombre, double precio, int cantidad, std::string fecha);
+    std::string getFecha() const;
+    void setFecha(std::string fecha);
+private:
+    std::string fecha;
 };
 
-#endif
+#endif // VERDURA_H

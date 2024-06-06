@@ -1,38 +1,28 @@
 #include "Producto.h"
 
-Producto::Producto() : nombre(""), precio(0), peso(0) {}
+Producto::Producto(std::string nombre, double precio, int cantidad)
+    : nombre(nombre), precio(precio), cantidad(cantidad) {}
 
-Producto::Producto(string nombre, int precio, int peso)
-    : nombre(nombre), precio(precio), peso(peso) {}
-
-void Producto::setNombre(string nombre) {
-    this->nombre = nombre;
-}
-
-void Producto::setPrecio(int precio) {
-    this->precio = precio;
-}
-
-void Producto::setPeso(int peso) {
-    this->peso = peso;
-}
-
-string Producto::getNombre() {
+std::string Producto::getNombre() const {
     return nombre;
 }
 
-int Producto::getPrecio() {
+void Producto::setNombre(std::string nombre) {
+    this->nombre = nombre;
+}
+
+double Producto::getPrecio() const {
     return precio;
 }
 
-int Producto::getPeso() {
-    return peso;
+void Producto::setPrecio(double precio) {
+    this->precio = precio;
 }
 
-string Producto::str() {
-    return "Nombre: " + nombre + ", Precio: $" + to_string(precio) + ", Peso: " + to_string(peso) + "kg";
+int Producto::getCantidad() const {
+    return cantidad;
 }
 
-int Producto::calcularTotalPagar() {
-    return precio * peso;
+void Producto::setCantidad(int cantidad) {
+    this->cantidad = cantidad;
 }

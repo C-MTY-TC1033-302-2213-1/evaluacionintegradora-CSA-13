@@ -1,22 +1,12 @@
 #include "Combo.h"
 
-Combo::Combo() : Producto(), clave(0) {}
+Combo::Combo(std::string nombre, double precio, int cantidad, int descuento)
+    : Producto(nombre, precio, cantidad), descuento(descuento) {}
 
-Combo::Combo(string nombre, int precio, int peso, int clave)
-    : Producto(nombre, precio, peso), clave(clave) {}
-
-int Combo::calcularTotalPagar() {
-    int total = getPrecio() * getPeso();
-
-    if (clave == 1) {
-        total -= (total / 100) * 25;
-    } else if (clave == 2) {
-        total -= (total / 100) * 30;
-    }
-
-    return total;
+int Combo::getDescuento() const {
+    return descuento;
 }
 
-string Combo::str() {
-    return getNombre() + "-$" + to_string(getPrecio()) + "-" + to_string(getPeso()) + "-$" + to_string(calcularTotalPagar()) + "-" + to_string(clave);
+void Combo::setDescuento(int descuento) {
+    this->descuento = descuento;
 }
